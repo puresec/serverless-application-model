@@ -48,7 +48,7 @@ def main():
         cloud_formation_template = transform(
             sam_template, {}, ManagedPolicyLoader(iam_client))
         cloud_formation_template_prettified = json.dumps(
-            cloud_formation_template, indent=2)
+            cloud_formation_template, indent=2, default=str)
 
         with open(output_file_path, 'w') as f:
             f.write(cloud_formation_template_prettified)
